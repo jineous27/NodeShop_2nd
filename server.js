@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var morgan = require("morgan");
 
 /*
 app.use((req, res) => {
@@ -14,6 +15,8 @@ var productRoutes = require('./routes/products');
 var cartRoutes = require('./routes/carts');
 var bbsRoutes = require('./routes/bbs');
 
+
+app.use(morgan('dev'));
 
 app.use('/products', productRoutes);
 app.use('/carts', cartRoutes);
