@@ -1,0 +1,22 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "2- Node SHop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jineous27/2--Node-SHop.git"
+  },
+  "keywords": [
+    "shop"
+  ],
+  "author": "jinhee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jineous27/2--Node-SHop/issues"
+  },
+  "homepage": "https://github.com/jineous27/2--Node-SHop#readme"
+}
