@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jineous27/2--Node-SHop/issues"
   },
-  "homepage": "https://github.com/jineous27/2--Node-SHop#readme"
+  "homepage": "https://github.com/jineous27/2--Node-SHop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
