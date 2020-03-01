@@ -3,8 +3,13 @@ var router = express.Router();
 
 //게시판에 글 등록하는 API
 router.post('/', (req, res) => {
+    const content = {
+        title: req.body.title,
+        subtitle: req.body.subtitle 
+    };
     res.json({
-        message:"it's posted"
+        message:"it's posted",
+        createContent: content
     });
 });
 

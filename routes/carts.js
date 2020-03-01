@@ -4,8 +4,14 @@ var router = express.Router();
 
 //카트안에 제품을 등록하는 API
 router.post('/', (req, res) => {
+    const cart = {
+        name: req.body.name,
+        qty: req.body.qty,
+        option: req.body.option,
+    }
     res.json({
-        message:"The product is added in the cart"
+        message:"The product is added in the cart",
+        createdCart: cart
     });
 });
 
