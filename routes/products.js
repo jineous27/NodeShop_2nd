@@ -27,10 +27,24 @@ router.post('/', (req, res) => {
 
 //등록된 제품을 받아오는 API를 생성해 보자.
 router.get('/', (req, res) => {
-    res.json({
-        message: "The products are got"
-    });
+    productModel
+        .find()
+        .exec()
+        .then(docs => {
+            res.json({
+                message: "The data successfully got",
+                products: docs
+            });
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
 });
+
+
+
 
 //등록된 제품을 수정/업데이트 하는 API를 생성해 보자.
 router.patch('/', (req, res) => {
