@@ -1,18 +1,27 @@
 var express = require("express");
 var router = express.Router();
+var productModel = require('../models/product');
 
 
 //제품 등록하는 API를 생성해보자
 router.post('/', (req, res) => {
-    const product = {
+    const product = new productModel({
         name: req.body.name,
         price: req.body.price
-    };
-
-    res.json({
-        message: "The producet is posted",
-        createdProduct: product
     });
+    product
+        .save()
+        .then(result => {
+            res.json({
+                message: "Your product is successfully registered",
+                productInfo: result
+            });
+        })
+        .catch(error => {
+            res.json({
+                err: error
+            });
+        });
 });
 
 
