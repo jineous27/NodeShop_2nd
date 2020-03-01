@@ -9,6 +9,7 @@ router.post('/', (req, res) => {
         qty: req.body.qty,
         option: req.body.option,
     }
+    
     res.json({
         message:"The product is added in the cart",
         createdCart: cart

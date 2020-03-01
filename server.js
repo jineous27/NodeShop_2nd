@@ -17,7 +17,7 @@ var productRoutes = require('./routes/products');
 var cartRoutes = require('./routes/carts');
 var bbsRoutes = require('./routes/bbs');
 
-const DB = "";
+const DB = "mongodb+srv://Admin-jiny:wlsl4378@cluster0-ew1hw.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
     .then( () => console.log("MongoDB Connected"))
@@ -25,7 +25,7 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.url({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.use('/products', productRoutes);
