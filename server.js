@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var morgan = require("morgan");
+var bodyParser = require("body-parser");
 
 /*
 app.use((req, res) => {
@@ -17,6 +18,9 @@ var bbsRoutes = require('./routes/bbs');
 
 
 app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.url({ extended: false }));
+
 
 app.use('/products', productRoutes);
 app.use('/carts', cartRoutes);

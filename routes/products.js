@@ -4,8 +4,14 @@ var router = express.Router();
 
 //제품 등록하는 API를 생성해보자
 router.post('/', (req, res) => {
+    const product = {
+        name: req.body.name,
+        price: req.body.price
+    };
+
     res.json({
-        message: "The producet is posted"
+        message: "The producet is posted",
+        createdProduct: product
     });
 });
 
