@@ -43,6 +43,34 @@ router.get('/', (req, res) => {
         });
 });
 
+//선택된 제품을 불러오는 API를 만들어 보자 
+router.get('/:productID', (req, res) => {
+    const productID = req.params.productID;
+    productModel
+        .findById(productID)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            if (doc) {
+                res.json ({
+                    msg: "Successful get production detail",
+                    productInfo: doc
+                })
+            } else {
+                res.json ({
+                    msg: "No valid entry found for provided ID"
+                });
+            }
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
+});
+
+
+
 
 
 
