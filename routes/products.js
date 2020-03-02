@@ -81,18 +81,41 @@ router.patch('/', (req, res) => {
     });
 });
 
+
 //등록된 제품을 삭제하는 API를 생성해 보자.
 router.delete('/', (req, res) => {
-    res.json({
-        message:"The product is deleted"
-    });
+    productModel
+        .deleteMany()
+        .then(()=> {
+            res.json({
+                msg: "Deleted All"
+            })
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
 });
 
 
 
-
-
-
+//등록된 특정 제품을 ID에 따라서 삭제하는 API를 생성해 보자.
+router.delete('/:productID', (req, res) => {
+    const productID = req.params.productID;
+    productModel
+        .findByIdAndDelete(productID)
+        .then(() => {
+            res.json ({
+                msg: "Delete the product"
+            })
+        })
+        .catch(error => {
+            res.json ({
+                err: error
+            });
+        });
+});
 
 
 
